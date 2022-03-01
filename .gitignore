@@ -1,0 +1,4 @@
+
+*.dll
+src/paths.txt
+src/test.txt
