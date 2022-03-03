@@ -1,0 +1,7 @@
+#include "foclasses.hpp"
+
+/* 
+
+HERE LIES THE NETWORKING CODE! FOR NON-NETWORK CODE, CHECK FOCLASSES.CPP! 
+
+*/
