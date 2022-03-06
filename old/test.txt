@@ -1,0 +1,2 @@
+G:\fairlyoutdated\FO-engine\src\main.cpp
+G:\fairlyoutdated\FO-engine\src\test.cpp

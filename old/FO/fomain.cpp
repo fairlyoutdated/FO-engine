@@ -1,28 +1,23 @@
 #include "fomain.hpp"
 #include <raylib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 namespace FairlyOutdated{
 namespace Engine{
 void FO_init(std::string gamename, int FPS, bool fun = false){
     InitWindow(1280, 720, gamename.c_str());
     SetTargetFPS(FPS);
-    switch(fun){
-        case false: 
-            std::cout << "FairlyOutdated Engine initialized!\n";
-            break;
-        case true:
-            std::cout << "the shit is init\n";
-    }
-
+    std::cout << "FairlyOutdated Engine initialized!\n";
 }
 
-void FO_renderScene(FairlyOutdated::Engine::Scene scene){
-    for(int i = 0; i < scene.objectlist.size(); i++){
-        for(int j = 0; j < scene.objectlist.at(i).components.size(); j++){
-            scene.objectlist.at(i).components.at(j).update();
-        }
+void FO_renderScene(FairlyOutdated::Engine::Scene * scene){
+    printf("RenderStart\n");
+    for(int i = 0; i < scene->objectlist.size(); i++){
+        scene->objectlist.at(i)->update();
     }
+    scene->update();
+    printf("RenderEnd\n");
 }
 
 void UIElement::update(){

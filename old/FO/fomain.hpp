@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <raylib.h>
 
 namespace FairlyOutdated{
     namespace Engine{
@@ -8,16 +9,13 @@ namespace FairlyOutdated{
         
         typedef enum { zero, one, two, three, four } DimensionType;
 
-class ObjectComponent{
-public:
-	virtual void start() = 0;
-	virtual void update() = 0;
-};
 
-class GameObject{
+class Actor{
 public:
 	DimensionType dimension;
-	std::vector<ObjectComponent> components;
+    Vector4 position;
+    virtual void start() = 0;
+	virtual void update() = 0;
 };
 
 typedef enum { text, button, random } UIElementType;
@@ -29,7 +27,6 @@ public:
     std::string textValue;
     int posx, posy, textsize;
     int red, green, blue, alpha;
-    std::vector<ObjectComponent> components;
     bool active;
     void update(); // Automatically refers to a type's update method, even 'random', in which case it calls customupdate();
     virtual void customupdate() = 0;
@@ -37,10 +34,11 @@ public:
 
 class Scene{
 public:
-	std::vector<GameObject> objectlist;
+	std::vector<Actor*> objectlist;
+    virtual void update() = 0;
 	/*void ImportFromSceneFile(std::string path);*/ // Will be used in the future to load a scene from a .FOSCENE file.
 };
     void FO_init(std::string gamename, int FPS, bool fun = false);
-        void FO_renderScene(Scene scene);
+        void FO_renderScene(Scene * scene);
     }
 }
