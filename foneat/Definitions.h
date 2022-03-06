@@ -12,7 +12,7 @@ This file will be generated automatically by the NeatEngine editor.
 class MainMenu : public Neat::Scenes::Scene {
 public:
 	std::string Title = "MainMenu";
-	std::vector<Neat::Actors::Actor> Actors;
+	std::vector<Neat::Actors::Actor*> Actors;
 	void Start();
 	void Update();
 };
