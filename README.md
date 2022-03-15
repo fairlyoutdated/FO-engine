@@ -1,4 +1,4 @@
-# FO-engine
+# FairlyOutdated Neat
 Game engine that supports games up to 4D.
 
 ## Technicalities
